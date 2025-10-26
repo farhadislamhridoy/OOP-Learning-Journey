@@ -1,0 +1,1 @@
+A simple Java program demonstrating encapsulation, inheritance, and polymorphism through a library management system. Includes Book superclass and subclasses EBook and PrintedBook with overridden methods and encapsulated properties.
