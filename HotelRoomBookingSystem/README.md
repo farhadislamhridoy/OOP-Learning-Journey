@@ -1,47 +1,42 @@
-Hotel Room Booking System
-A simple, console-based application for managing different types of rooms in a hotel built with Java.
+# Java Hotel Booking System Application
 
-This project provides a clear example of Object-Oriented Programming (OOP), specifically focusing on Inheritance and Polymorphism.
+A simple, console-based system for managing hotel rooms built with Java.
 
-Key Features & OOP Concepts
-1. Inheritance
-Base Class: The Room class acts as the parent class, defining common properties for all hotel rooms, including roomNumber, roomType, pricePerNight, and the isBooked status.
+This project provides a clear example of **Object-Oriented Programming (OOP)**, specifically focusing on **Inheritance**, **Polymorphism**, and **Encapsulation**.
 
-Subclasses: DeluxeRoom and SuiteRoom extend the Room class, inheriting these common properties while adding room-specific attributes and logic.
+## Key Features & OOP Concepts
 
-DeluxeRoom adds a freeBreakfast boolean attribute.
+### 1. Inheritance
+* **Base Class:** The `Room` class acts as the **parent class**, defining common properties for all room types, including `roomNumber`, `roomType`, `pricePerNight`, and the basic operational methods like `bookRoom()` and `vacateRoom()`.
+* **Subclasses:** `DeluxeRoom` and `SuiteRoom` **extend** the `Room` class, inheriting these common properties and behaviors while adding room-specific attributes and logic.
 
-SuiteRoom adds a livingAreaSize double attribute.
+### 2. Polymorphism
+* **Method Overriding:** The `displayDetails()` method is **overridden** in the subclasses (`DeluxeRoom` and `SuiteRoom`) to provide specific, dynamic implementations based on the room type:
+    * **DeluxeRoom:** Adds details about whether `freeBreakfast` is included.
+    * **SuiteRoom:** Adds details about the `livingAreaSize`.
+* **Dynamic Dispatch:** The `Main.java` class demonstrates **polymorphism** by iterating over an `ArrayList` of the base `Room` type and calling `displayDetails()`, which executes the correct subclass implementation at runtime.
 
-2. Polymorphism
-Method Overriding: The displayDetails() method is overridden in both subclasses to provide specific, dynamic implementations based on the room type:
+### 3. Encapsulation
+* **Data Hiding:** All class attributes (e.g., `roomNumber`, `pricePerNight`, `isBooked`, `freeBreakfast`, `livingAreaSize`) are declared as **private**.
+* **Controlled Access:** Public methods (Getters and Setters) are provided for controlled access to the attributes. For example, `getRoomNumber()` provides read access, and `setBooked()` controls the modification of the booking status.
 
-DeluxeRoom: Adds the status of the Free Breakfast to the details.
+---
 
-SuiteRoom: Adds the Living Area Size to the details.
+## Project Structure
 
-Runtime Behavior: In the Main class, a list of the base Room type is created. When the program iterates through this list and calls r.displayDetails(), the correct overridden method for DeluxeRoom or SuiteRoom is executed at runtime.
+The system is organized using a hierarchical class structure:
 
-3. Encapsulation
-Data Hiding: All attributes in the Room, DeluxeRoom, and SuiteRoom classes (e.g., roomNumber, pricePerNight, freeBreakfast) are declared as private, restricting direct external access.
+* `Room.java`: The **parent class** that defines the blueprint for all hotel rooms and includes basic methods for booking, vacating, and displaying general details.
+* `DeluxeRoom.java`: Extends `Room`, adding the `freeBreakfast` boolean attribute and overriding the `displayDetails()` method for Deluxe room-specific information.
+* `SuiteRoom.java`: Extends `Room`, adding the `livingAreaSize` double attribute and overriding the `displayDetails()` method for Suite room-specific information.
+* `Main.java`: The main execution class responsible for:
+    * Creating and initializing an `ArrayList` of specialized room objects.
+    * Demonstrating **polymorphism** by iterating over the list and calling the overridden `displayDetails()` method.
+    * Showcasing the `bookRoom()` and `vacateRoom()` methods.
 
-Controlled Access: Public methods (like getRoomNumber(), getPricePerNight(), bookRoom(), and vacateRoom()) are provided for controlled access and modification of the room data. This ensures the internal state of the objects remains consistent.
+---
 
-Project Structure
-The system is organized using a hierarchical class structure within the package com.farhadislam.Knapsack.HotelBookingSystem:
-
-Room.java: The parent class that defines the blueprint for all hotel rooms and provides default methods for booking, vacating, and displaying details.
-
-DeluxeRoom.java: Extends Room, adding the freeBreakfast boolean and overriding displayDetails() for deluxe-specific information.
-
-SuiteRoom.java: Extends Room, adding the livingAreaSize double and overriding displayDetails() for suite-specific information.
-
-Main.java: The main class responsible for creating specialized room objects (DeluxeRoom and SuiteRoom) and demonstrating polymorphism by calling the overridden methods on the base Room type.
-
-Example Output
-
-When running the Main.java file, you would see an output similar to this:
-
+### Example Output
 Hotel Room Details: 
 Room Number: 101
 Room Type: Deluxe
